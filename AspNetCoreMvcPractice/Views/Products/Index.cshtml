@@ -1,0 +1,43 @@
+﻿@model IEnumerable<AspNetCoreMvcPractice.Data.Models2.Product>
+@{
+    ViewData["Title"] = "Products";
+}
+
+<div>
+    <a asp-action="Create" class="btn btn-outline-primary">Create new product</a>
+</div>
+
+<div style="padding-top: 20px; padding-right: 30px">
+    <table>
+        <caption></caption>
+        <tr>
+            <th id="edit" />
+            <th id="name">Name</th>
+            <th id="supplier">Supplier</th>
+            <th id="categorie">Category</th>
+            <th id="quantity per unit">Quantity per unit</th>
+            <th id="unit price">Unit price</th>
+            <th id="units in stock">Units in stock</th>
+            <th id="units on order">Units on order</th>
+            <th id="reorder level">Reorder level</th>
+            <th id="discontinued">Discontinued</th>
+        </tr>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@product.ProductId" class="btn btn-sm" style="color: gray;"/>
+                </td>
+                <td>@product.ProductName</td>
+                <td>@product.Supplier.CompanyName</td>
+                <td>@product.Category.CategoryName</td>
+                <td>@product.QuantityPerUnit</td>
+                <td>@product.UnitPrice</td>
+                <td>@product.UnitsInStock</td>
+                <td>@product.UnitsOnOrder</td>
+                <td>@product.ReorderLevel</td>
+                <td>@product.Discontinued</td>
+            </tr>
+        }
+    </table>
+</div>

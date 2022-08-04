@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32630.194
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetCoreMvcPractice", "AspNetCoreMvcPractice\AspNetCoreMvcPractice.csproj", "{6D13B488-6732-4401-8F0C-C9EA571F3C15}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetCoreMvcPractice.Data", "AspNetCoreMvcPractice.Data\AspNetCoreMvcPractice.Data.csproj", "{73499E38-21F9-480F-80F6-FB35A929870B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6D13B488-6732-4401-8F0C-C9EA571F3C15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D13B488-6732-4401-8F0C-C9EA571F3C15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D13B488-6732-4401-8F0C-C9EA571F3C15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D13B488-6732-4401-8F0C-C9EA571F3C15}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73499E38-21F9-480F-80F6-FB35A929870B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73499E38-21F9-480F-80F6-FB35A929870B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73499E38-21F9-480F-80F6-FB35A929870B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73499E38-21F9-480F-80F6-FB35A929870B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {15415E7B-4AAD-4BF0-AD23-20B4FD24E602}
+	EndGlobalSection
+EndGlobal

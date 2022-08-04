@@ -1,0 +1,16 @@
+﻿@model IEnumerable<AspNetCoreMvcPractice.Data.Models2.Category>
+@{
+    ViewData["Title"] = "Categories list";
+}
+
+@foreach (var category in Model)
+{
+    <div class="row" style="padding-top: 20px">
+        <div style="padding-top: -20px">
+            <dl>
+                <dt class="h4">@category.CategoryName</dt>
+                <dd>• @category.Description</dd>
+            </dl>
+        </div>
+    </div>
+}
