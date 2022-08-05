@@ -1,21 +1,11 @@
-using AspNetCoreMvcPractice.Data;
-using AspNetCoreMvcPractice.Data.Interfaces;
-using AspNetCoreMvcPractice.Data.Models;
-using AspNetCoreMvcPractice.Data.Repositories;
-using AspNetCoreMvcPractice.Helpers;
-using AspNetCoreMvcPractice.Services;
+using AspNetCoreMvcPractice.Business;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Threading.Tasks;
 
 namespace AspNetCoreMvcPractice
 {
@@ -32,20 +22,7 @@ namespace AspNetCoreMvcPractice
         {
             services.AddControllersWithViews();
 
-            services.AddDbContext<NorthwindDbContext>(options => 
-            {
-                var connection = Configuration.GetValue<string>("ConnectionStrings:NorthwindDbContext");
-                options.UseSqlServer(connection);
-            });
-
-            services.AddScoped<ICategoryService, CategoryService>()
-                    .AddScoped<IProductService, ProductService>();
-
-            services.AddScoped<IProductRepository, ProductRepository>()
-                    .AddScoped<IRepository<Category>, GenericRepository<Category>>()
-                    .AddScoped<IRepository<Supplier>, GenericRepository<Supplier>>();
-
-            services.AddScoped<DbContext, NorthwindDbContext>();
+            services.AddBusinessServices(Configuration);
 
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
         }

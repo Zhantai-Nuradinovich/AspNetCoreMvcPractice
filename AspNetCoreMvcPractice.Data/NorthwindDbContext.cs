@@ -1,5 +1,4 @@
-﻿using System;
-using AspNetCoreMvcPractice.Data.Models;
+﻿using AspNetCoreMvcPractice.Data.Models;
 using Microsoft.EntityFrameworkCore;
 
 // Code scaffolded by EF Core assumes nullable reference types (NRTs) are not used or disabled.

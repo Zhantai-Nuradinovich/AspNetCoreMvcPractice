@@ -1,14 +1,10 @@
-﻿using AspNetCoreMvcPractice.Data.Models;
-using AspNetCoreMvcPractice.Services;
+﻿using AspNetCoreMvcPractice.Business.Services;
+using AspNetCoreMvcPractice.Data.Models;
 using AspNetCoreMvcPractice.ViewModels.Products;
 using AutoMapper;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Configuration;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace AspNetCoreMvcPractice.Controllers

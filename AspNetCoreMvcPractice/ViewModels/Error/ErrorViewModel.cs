@@ -1,6 +1,5 @@
-using System;
 
-namespace AspNetCoreMvcPractice.Models
+namespace AspNetCoreMvcPractice.ViewModels.Error
 {
     public class ErrorViewModel
     {

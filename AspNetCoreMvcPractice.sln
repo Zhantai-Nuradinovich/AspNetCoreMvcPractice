@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.32630.194
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetCoreMvcPractice", "AspNetCoreMvcPractice\AspNetCoreMvcPractice.csproj", "{6D13B488-6732-4401-8F0C-C9EA571F3C15}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetCoreMvcPractice", "AspNetCoreMvcPractice\AspNetCoreMvcPractice.csproj", "{6D13B488-6732-4401-8F0C-C9EA571F3C15}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetCoreMvcPractice.Data", "AspNetCoreMvcPractice.Data\AspNetCoreMvcPractice.Data.csproj", "{73499E38-21F9-480F-80F6-FB35A929870B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetCoreMvcPractice.Data", "AspNetCoreMvcPractice.Data\AspNetCoreMvcPractice.Data.csproj", "{73499E38-21F9-480F-80F6-FB35A929870B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetCoreMvcPractice.Business", "AspNetCoreMvcPractice.Business\AspNetCoreMvcPractice.Business.csproj", "{6EE8A6F0-34BD-48CB-AE70-80D13400EE53}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{73499E38-21F9-480F-80F6-FB35A929870B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{73499E38-21F9-480F-80F6-FB35A929870B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{73499E38-21F9-480F-80F6-FB35A929870B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6EE8A6F0-34BD-48CB-AE70-80D13400EE53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6EE8A6F0-34BD-48CB-AE70-80D13400EE53}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6EE8A6F0-34BD-48CB-AE70-80D13400EE53}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6EE8A6F0-34BD-48CB-AE70-80D13400EE53}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
