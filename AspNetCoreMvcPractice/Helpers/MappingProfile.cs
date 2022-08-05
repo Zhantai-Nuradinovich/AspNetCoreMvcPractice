@@ -1,4 +1,4 @@
-﻿using AspNetCoreMvcPractice.Data.Models2;
+﻿using AspNetCoreMvcPractice.Data.Models;
 using AspNetCoreMvcPractice.ViewModels.Products;
 using AutoMapper;
 using System;

@@ -5,13 +5,13 @@ using System.Collections.Generic;
 // If you have enabled NRTs for your project, then un-comment the following line:
 // #nullable disable
 
-namespace AspNetCoreMvcPractice.Data.Models2
+namespace AspNetCoreMvcPractice.Data.Models
 {
-    public partial class CustomerAndSuppliersByCity
+    public partial class SalesTotalsByAmount
     {
-        public string City { get; set; }
+        public decimal? SaleAmount { get; set; }
+        public int OrderId { get; set; }
         public string CompanyName { get; set; }
-        public string ContactName { get; set; }
-        public string Relationship { get; set; }
+        public DateTime? ShippedDate { get; set; }
     }
 }

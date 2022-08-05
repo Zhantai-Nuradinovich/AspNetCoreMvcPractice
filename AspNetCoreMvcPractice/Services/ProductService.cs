@@ -1,5 +1,5 @@
 ﻿using AspNetCoreMvcPractice.Data.Interfaces;
-using AspNetCoreMvcPractice.Data.Models2;
+using AspNetCoreMvcPractice.Data.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

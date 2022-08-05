@@ -1,4 +1,4 @@
-﻿using AspNetCoreMvcPractice.Data.Models2;
+﻿using AspNetCoreMvcPractice.Data.Models;
 using AspNetCoreMvcPractice.Services;
 using AspNetCoreMvcPractice.ViewModels.Products;
 using AutoMapper;
@@ -57,7 +57,7 @@ namespace AspNetCoreMvcPractice.Controllers
             }
         }
 
-        [HttpGet]
+        [HttpPut]
         public async Task<IActionResult> Edit(int id)
         {
             await FillProductsDropDownLists();
@@ -66,7 +66,7 @@ namespace AspNetCoreMvcPractice.Controllers
             return View(_mapper.Map<EditProductViewModel>(product));
         }
 
-        [HttpPost]
+        [HttpPut]
         public async Task<IActionResult> Edit(EditProductViewModel product)
         {
             if (ModelState.IsValid)

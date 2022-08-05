@@ -1,6 +1,6 @@
 using AspNetCoreMvcPractice.Data;
 using AspNetCoreMvcPractice.Data.Interfaces;
-using AspNetCoreMvcPractice.Data.Models2;
+using AspNetCoreMvcPractice.Data.Models;
 using AspNetCoreMvcPractice.Data.Repositories;
 using AspNetCoreMvcPractice.Helpers;
 using AspNetCoreMvcPractice.Services;

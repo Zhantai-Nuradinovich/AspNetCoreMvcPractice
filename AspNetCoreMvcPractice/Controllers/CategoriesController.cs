@@ -1,4 +1,4 @@
-﻿using AspNetCoreMvcPractice.Data.Models2;
+﻿using AspNetCoreMvcPractice.Data.Models;
 using AspNetCoreMvcPractice.Services;
 using AspNetCoreMvcPractice.ViewModels.Products;
 using AutoMapper;
@@ -16,14 +16,11 @@ namespace AspNetCoreMvcPractice.Controllers
     public class CategoriesController : Controller
     {
         private readonly ICategoryService _categoryService;
-        private readonly IMapper _mapper;
 
         public CategoriesController(
-            ICategoryService categoryService,
-            IMapper mapper)
+            ICategoryService categoryService)
         {
             _categoryService = categoryService;
-            _mapper = mapper;
         }
 
         public async Task<IActionResult> Index()

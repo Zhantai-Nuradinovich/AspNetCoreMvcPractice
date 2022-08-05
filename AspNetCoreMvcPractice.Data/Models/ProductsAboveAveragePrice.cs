@@ -5,14 +5,11 @@ using System.Collections.Generic;
 // If you have enabled NRTs for your project, then un-comment the following line:
 // #nullable disable
 
-namespace AspNetCoreMvcPractice.Data.Models2
+namespace AspNetCoreMvcPractice.Data.Models
 {
-    public partial class ProductsByCategory
+    public partial class ProductsAboveAveragePrice
     {
-        public string CategoryName { get; set; }
         public string ProductName { get; set; }
-        public string QuantityPerUnit { get; set; }
-        public short? UnitsInStock { get; set; }
-        public bool Discontinued { get; set; }
+        public decimal? UnitPrice { get; set; }
     }
 }

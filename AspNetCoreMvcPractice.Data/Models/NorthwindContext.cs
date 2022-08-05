@@ -1,20 +1,20 @@
 ﻿using System;
-using AspNetCoreMvcPractice.Data.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata;
 
 // Code scaffolded by EF Core assumes nullable reference types (NRTs) are not used or disabled.
 // If you have enabled NRTs for your project, then un-comment the following line:
 // #nullable disable
 
-namespace AspNetCoreMvcPractice.Data
+namespace AspNetCoreMvcPractice.Data.Models
 {
-    public partial class NorthwindDbContext : DbContext
+    public partial class NorthwindContext : DbContext
     {
-        public NorthwindDbContext()
+        public NorthwindContext()
         {
         }
 
-        public NorthwindDbContext(DbContextOptions<NorthwindDbContext> options)
+        public NorthwindContext(DbContextOptions<NorthwindContext> options)
             : base(options)
         {
         }
@@ -48,6 +48,15 @@ namespace AspNetCoreMvcPractice.Data
         public virtual DbSet<SummaryOfSalesByYear> SummaryOfSalesByYear { get; set; }
         public virtual DbSet<Supplier> Suppliers { get; set; }
         public virtual DbSet<Territories> Territories { get; set; }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (!optionsBuilder.IsConfigured)
+            {
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
+                optionsBuilder.UseSqlServer("Server=localhost\\SQLEXPRESS;Database=Northwind;Trusted_Connection=True;");
+            }
+        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -5,15 +5,10 @@ using System.Collections.Generic;
 // If you have enabled NRTs for your project, then un-comment the following line:
 // #nullable disable
 
-namespace AspNetCoreMvcPractice.Data.Models2
+namespace AspNetCoreMvcPractice.Data.Models
 {
-    public partial class Order
+    public partial class OrdersQry
     {
-        public Order()
-        {
-            OrderDetails = new HashSet<OrderDetail>();
-        }
-
         public int OrderId { get; set; }
         public string CustomerId { get; set; }
         public int? EmployeeId { get; set; }
@@ -28,10 +23,11 @@ namespace AspNetCoreMvcPractice.Data.Models2
         public string ShipRegion { get; set; }
         public string ShipPostalCode { get; set; }
         public string ShipCountry { get; set; }
-
-        public virtual Customer Customer { get; set; }
-        public virtual Employee Employee { get; set; }
-        public virtual Shippers ShipViaNavigation { get; set; }
-        public virtual ICollection<OrderDetail> OrderDetails { get; set; }
+        public string CompanyName { get; set; }
+        public string Address { get; set; }
+        public string City { get; set; }
+        public string Region { get; set; }
+        public string PostalCode { get; set; }
+        public string Country { get; set; }
     }
 }
