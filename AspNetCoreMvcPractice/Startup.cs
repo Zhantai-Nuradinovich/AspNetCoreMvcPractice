@@ -50,7 +50,6 @@ namespace AspNetCoreMvcPractice
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(
             IApplicationBuilder app, 
             IWebHostEnvironment env, 
@@ -76,8 +75,6 @@ namespace AspNetCoreMvcPractice
             app.UseRouting();
 
             app.UseAuthorization();
-
-            app.UseMiddleware<ExceptionHandlerMiddleware>();
 
             app.UseEndpoints(endpoints =>
             {
