@@ -53,7 +53,7 @@ namespace AspNetCoreMvcPractice.Controllers
             }
         }
 
-        [HttpPut]
+        [HttpGet]
         public async Task<IActionResult> Edit(int id)
         {
             await FillProductsDropDownLists();

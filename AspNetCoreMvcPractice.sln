@@ -7,7 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetCoreMvcPractice", "As
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetCoreMvcPractice.Data", "AspNetCoreMvcPractice.Data\AspNetCoreMvcPractice.Data.csproj", "{73499E38-21F9-480F-80F6-FB35A929870B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetCoreMvcPractice.Business", "AspNetCoreMvcPractice.Business\AspNetCoreMvcPractice.Business.csproj", "{6EE8A6F0-34BD-48CB-AE70-80D13400EE53}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetCoreMvcPractice.Business", "AspNetCoreMvcPractice.Business\AspNetCoreMvcPractice.Business.csproj", "{6EE8A6F0-34BD-48CB-AE70-80D13400EE53}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{7BD5DFBA-2511-4EAF-861B-42C5CEF9B51E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetCoreMvcPractice.Tests", "AspNetCoreMvcPractice.Tests\AspNetCoreMvcPractice.Tests.csproj", "{E6AC1EB8-87BF-41A8-B752-832EB94256CF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,9 +31,16 @@ Global
 		{6EE8A6F0-34BD-48CB-AE70-80D13400EE53}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6EE8A6F0-34BD-48CB-AE70-80D13400EE53}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6EE8A6F0-34BD-48CB-AE70-80D13400EE53}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6AC1EB8-87BF-41A8-B752-832EB94256CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6AC1EB8-87BF-41A8-B752-832EB94256CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6AC1EB8-87BF-41A8-B752-832EB94256CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6AC1EB8-87BF-41A8-B752-832EB94256CF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E6AC1EB8-87BF-41A8-B752-832EB94256CF} = {7BD5DFBA-2511-4EAF-861B-42C5CEF9B51E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {15415E7B-4AAD-4BF0-AD23-20B4FD24E602}
