@@ -8,5 +8,7 @@ namespace AspNetCoreMvcPractice.Business.Services
     {
         Task<IEnumerable<Category>> GetAllAsync();
         Task<byte[]> GetPictureByIdAsync(int id);
+        Task<Category> GetByIdAsync(int id);
+        Task EditImageById(int categoryID, byte[] picture);
     }
 }

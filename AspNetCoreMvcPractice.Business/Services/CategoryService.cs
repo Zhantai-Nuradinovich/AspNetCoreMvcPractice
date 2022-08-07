@@ -33,5 +33,12 @@ namespace AspNetCoreMvcPractice.Business.Services
 
             return model;
         }
+
+        public async Task EditImageById(int categoryID, byte[] picture)
+        {
+            var model = await GetByIdAsync(categoryID);
+            model.Picture = picture;
+            await _categoryRepository.UpdateAsync(model);
+        }
     }
 }

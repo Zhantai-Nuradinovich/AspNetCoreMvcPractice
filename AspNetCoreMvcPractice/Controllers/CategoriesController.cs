@@ -1,5 +1,9 @@
 ﻿using AspNetCoreMvcPractice.Business.Services;
+using AspNetCoreMvcPractice.ViewModels.Categories;
+using AutoMapper;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.IO;
 using System.Threading.Tasks;
 
 namespace AspNetCoreMvcPractice.Controllers
@@ -7,11 +11,14 @@ namespace AspNetCoreMvcPractice.Controllers
     public class CategoriesController : Controller
     {
         private readonly ICategoryService _categoryService;
+        private readonly IMapper _mapper;
 
         public CategoriesController(
-            ICategoryService categoryService)
+            ICategoryService categoryService,
+            IMapper mapper)
         {
             _categoryService = categoryService;
+            _mapper = mapper;
         }
         [HttpGet]
         public async Task<IActionResult> Index()
@@ -24,6 +31,29 @@ namespace AspNetCoreMvcPractice.Controllers
         public async Task<IActionResult> GetImage(int id)
         {
             return File(await _categoryService.GetPictureByIdAsync(id), "image/bmp");
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> EditImage(int id)
+        {
+            var category = await _categoryService.GetByIdAsync(id);
+            return View(_mapper.Map<EditImageViewModel>(category));
+        }
+
+        [HttpPost] //с PUT не работает
+        public async Task<IActionResult> EditImage(EditImageViewModel model, IFormFile uploadedFile)
+        {
+            if (ModelState.IsValid && uploadedFile != null)
+            {
+                using (var memoryStream = new MemoryStream())
+                {
+                    await uploadedFile.CopyToAsync(memoryStream);
+                    model.Picture = memoryStream.ToArray();
+                    await _categoryService.EditImageById(model.CategoryID, model.Picture);
+                }
+            }
+
+            return RedirectToAction("Index");
         }
     }
 }

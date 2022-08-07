@@ -6,6 +6,14 @@
 @foreach (var category in Model)
 {
     <div class="row" style="padding-top: 20px">
+        <ul class="col-md-auto">
+            <li>
+                <a asp-action="GetImage" asp-route-id="@category.CategoryID">See image!</a>
+            </li>
+            <li>
+                <a asp-action="EditImage" asp-route-id="@category.CategoryID">Edit Image!</a>
+            </li>
+        </ul>
         <div style="padding-top: -20px">
             <dl>
                 <dt class="h4">@category.CategoryName</dt>

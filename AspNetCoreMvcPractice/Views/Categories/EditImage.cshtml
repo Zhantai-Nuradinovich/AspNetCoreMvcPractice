@@ -1,0 +1,29 @@
+﻿@model EditImageViewModel
+@{
+    ViewData["Title"] = "Edit image";
+}
+
+<form method="post" enctype="multipart/form-data">
+    <label class="h3">@Model.CategoryName</label>
+    <div class="row">
+        <div class="col-md-auto" style="padding-top: 10px">
+            <a asp-action="GetImage" asp-route-id="@Model.CategoryID">See image</a>
+        </div>
+        <div class="col-sm-auto" style="padding-top: 10px">
+            <dl>
+                <dt style="padding-left: -5px; padding-top: 5px">
+                    <input type="file" name="uploadedFile" class="form-control-sm" />
+                </dt>
+                <dd style="padding-left: 8px; padding-top: 10px">
+                    <input type="hidden" asp-for="CategoryID" />
+                    <input type="hidden" asp-for="CategoryName" />
+                    <input type="submit" value="Save" class="btn btn-outline-primary" />
+                </dd>
+            </dl>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
