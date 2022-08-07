@@ -7,5 +7,6 @@ namespace AspNetCoreMvcPractice.Business.Services
     public interface ICategoryService
     {
         Task<IEnumerable<Category>> GetAllAsync();
+        Task<byte[]> GetPictureByIdAsync(int id);
     }
 }

@@ -37,7 +37,7 @@ namespace AspNetCoreMvcPractice.Business.Services
 
         public async Task<Product> GetByIdAsync(int id)
         {
-            var model = await _productRepository.FindAsync(p => p.ProductId == id);
+            var model = await _productRepository.FindAsync(p => p.ProductID == id);
             if(model == null)
                 throw new InvalidOperationException($"Product with Id: {id} not found");
 

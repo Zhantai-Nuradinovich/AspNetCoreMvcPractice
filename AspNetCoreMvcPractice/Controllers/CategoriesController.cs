@@ -13,11 +13,17 @@ namespace AspNetCoreMvcPractice.Controllers
         {
             _categoryService = categoryService;
         }
-
+        [HttpGet]
         public async Task<IActionResult> Index()
         {
             var products = await _categoryService.GetAllAsync();
             return View(products);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetImage(int id)
+        {
+            return File(await _categoryService.GetPictureByIdAsync(id), "image/bmp");
         }
     }
 }

@@ -27,7 +27,7 @@ namespace AspNetCoreMvcPractice.Data.Repositories
             return await Context.Set<Product>()
                .Include(s => s.Supplier)
                .Include(c => c.Category)
-               .OrderByDescending(p => p.ProductId)
+               .OrderByDescending(p => p.ProductID)
                .AsNoTracking()
                .ToListAsync();
         }
@@ -37,7 +37,7 @@ namespace AspNetCoreMvcPractice.Data.Repositories
             return await Context.Set<Product>()
                 .Include(s => s.Supplier)
                 .Include(c => c.Category)
-                .OrderByDescending(p => p.ProductId)
+                .OrderByDescending(p => p.ProductID)
                 .Take(count)
                 .AsNoTracking()
                 .ToListAsync();

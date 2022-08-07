@@ -39,9 +39,9 @@ namespace AspNetCoreMvcPractice.Tests
         {
             return new [] 
             { 
-                new Category() { CategoryId = 1, CategoryName = "First", Description = "AA"},
-                new Category() { CategoryId = 2, CategoryName = "Second", Description = "BB"},
-                new Category() { CategoryId = 3, CategoryName = "Third", Description = "CC"}
+                new Category() { CategoryID = 1, CategoryName = "First", Description = "AA"},
+                new Category() { CategoryID = 2, CategoryName = "Second", Description = "BB"},
+                new Category() { CategoryID = 3, CategoryName = "Third", Description = "CC"}
             };
         }
     }

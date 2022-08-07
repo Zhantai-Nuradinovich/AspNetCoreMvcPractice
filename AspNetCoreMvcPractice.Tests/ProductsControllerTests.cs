@@ -56,7 +56,7 @@ namespace AspNetCoreMvcPractice.Tests
         [Fact]
         public async Task Create_CreateNewProduct_ReturnsViewWithNewProductAsync()
         {
-            var product = new Product() { ProductId = 1 };
+            var product = new Product() { ProductID = 1 };
             _mockService.Setup(serv => serv.CreateAsync(product));
             _mockService.Setup(serv => serv.GetMaxAmountAsync(5))
                 .ReturnsAsync(new[] { product });
@@ -74,7 +74,7 @@ namespace AspNetCoreMvcPractice.Tests
         [Fact]
         public async Task Edit_EditProduct_ReturnsViewWithUpdatedProductAsync()
         {
-            var product = new Product() { ProductId = 1 };
+            var product = new Product() { ProductID = 1 };
             _mockService.Setup(serv => serv.UpdateAsync(product));
             _mockService.Setup(serv => serv.GetMaxAmountAsync(5))
                 .ReturnsAsync(new[] { product });
@@ -94,9 +94,9 @@ namespace AspNetCoreMvcPractice.Tests
         {
             return new[]
 {
-                new Product() { CategoryId = 1, ProductId = 1},
-                new Product() { CategoryId = 2, ProductId = 2},
-                new Product() { CategoryId = 3, ProductId = 3}
+                new Product() { CategoryId = 1, ProductID = 1},
+                new Product() { CategoryId = 2, ProductID = 2},
+                new Product() { CategoryId = 3, ProductID = 3}
             };
         }
     }

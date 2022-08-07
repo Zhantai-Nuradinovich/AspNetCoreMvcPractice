@@ -77,12 +77,12 @@ namespace AspNetCoreMvcPractice.Data
 
             modelBuilder.Entity<Category>(entity =>
             {
-                entity.HasKey(e => e.CategoryId);
+                entity.HasKey(e => e.CategoryID);
 
                 entity.HasIndex(e => e.CategoryName)
                     .HasName("CategoryName");
 
-                entity.Property(e => e.CategoryId).HasColumnName("CategoryID");
+                entity.Property(e => e.CategoryID).HasColumnName("CategoryID");
 
                 entity.Property(e => e.CategoryName)
                     .IsRequired()
@@ -572,7 +572,7 @@ namespace AspNetCoreMvcPractice.Data
 
             modelBuilder.Entity<Product>(entity =>
             {
-                entity.HasKey(e => e.ProductId);
+                entity.HasKey(e => e.ProductID);
 
                 entity.HasIndex(e => e.CategoryId)
                     .HasName("CategoryID");
@@ -583,7 +583,7 @@ namespace AspNetCoreMvcPractice.Data
                 entity.HasIndex(e => e.SupplierId)
                     .HasName("SuppliersProducts");
 
-                entity.Property(e => e.ProductId).HasColumnName("ProductID");
+                entity.Property(e => e.ProductID).HasColumnName("ProductID");
 
                 entity.Property(e => e.CategoryId).HasColumnName("CategoryID");
 
