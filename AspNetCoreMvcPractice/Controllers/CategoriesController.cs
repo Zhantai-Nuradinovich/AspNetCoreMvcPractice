@@ -1,4 +1,5 @@
 ﻿using AspNetCoreMvcPractice.Business.Services;
+using AspNetCoreMvcPractice.Helpers;
 using AspNetCoreMvcPractice.ViewModels.Categories;
 using AutoMapper;
 using Microsoft.AspNetCore.Http;
@@ -8,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace AspNetCoreMvcPractice.Controllers
 {
+    [LogAction]
     public class CategoriesController : Controller
     {
         private readonly ICategoryService _categoryService;

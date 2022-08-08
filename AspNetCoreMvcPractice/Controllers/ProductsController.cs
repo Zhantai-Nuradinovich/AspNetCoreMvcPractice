@@ -1,5 +1,6 @@
 ﻿using AspNetCoreMvcPractice.Business.Services;
 using AspNetCoreMvcPractice.Data.Models;
+using AspNetCoreMvcPractice.Helpers;
 using AspNetCoreMvcPractice.ViewModels.Products;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
@@ -9,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace AspNetCoreMvcPractice.Controllers
 {
+    [LogAction]
     public class ProductsController : Controller
     {
         private readonly IProductService _productService;
