@@ -1,4 +1,5 @@
 using AspNetCoreMvcPractice.Business;
+using AspNetCoreMvcPractice.Helpers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -52,6 +53,8 @@ namespace AspNetCoreMvcPractice
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseMiddleware<ImageCacheMiddleware>();
 
             app.UseEndpoints(endpoints =>
             {

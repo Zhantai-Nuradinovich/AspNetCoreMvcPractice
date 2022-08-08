@@ -18,4 +18,8 @@
     <ProjectReference Include="..\AspNetCoreMvcPractice.Business\AspNetCoreMvcPractice.Business.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\CachedImages\" />
+  </ItemGroup>
+
 </Project>
