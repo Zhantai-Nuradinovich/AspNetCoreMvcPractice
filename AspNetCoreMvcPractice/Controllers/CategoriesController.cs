@@ -28,6 +28,8 @@ namespace AspNetCoreMvcPractice.Controllers
         }
 
         [HttpGet]
+        [Route("images/{id}")]
+        [Route("[controller]/[action]/{id}")]
         public async Task<IActionResult> GetImage(int id)
         {
             return File(await _categoryService.GetPictureByIdAsync(id), "image/bmp");
