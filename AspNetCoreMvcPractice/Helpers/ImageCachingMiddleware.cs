@@ -27,25 +27,21 @@ namespace AspNetCoreMvcPractice.Helpers
             _env = env;
             _configuration = configuration;
         }
+
         public async Task Invoke(HttpContext context)
         {
-            await InvokeCached(context);
-        }
-        private async Task InvokeCached(HttpContext context)
-        {
-            var key = GetKey(context);
-
             if (!IsCashableAction(context))
             {
                 await _next(context);
                 return;
             }
 
+            var key = GetKey(context);
             _cache.TryGetValue(key, out string path);
-            var imagePath = GetImagePath(context);
 
             if (path == null)
             {
+                var imagePath = GetImagePath(context);
                 DeleteFileIfExists(imagePath);
                 await ExecuteRequestAndCache(context, key, imagePath);
             }
@@ -62,13 +58,6 @@ namespace AspNetCoreMvcPractice.Helpers
             var imagesPath = Path.Combine(_env.WebRootPath, "CachedImages");
             return Path.Combine(imagesPath, id);
         }
-        private void DeleteFileIfExists(string path)
-        {
-            var isExists = File.Exists(path);
-            if (isExists)
-                File.Delete(path);
-        }
-
 
         private string GetKey(HttpContext context)
         {
@@ -81,11 +70,13 @@ namespace AspNetCoreMvcPractice.Helpers
 
             return sb.ToString();
         }
+
         private byte[] GetHash(byte[] uniqueData)
         {
             var sha256 = SHA256.Create();
             return sha256.ComputeHash(uniqueData);
         }
+
         private bool IsCashableAction(HttpContext context)
         {
             //hardcode
@@ -115,13 +106,6 @@ namespace AspNetCoreMvcPractice.Helpers
                 await responseBody.CopyToAsync(originalBodyStream);
             }
         }
-
-        private async Task CreateFileAsync(string imagePath, byte[] buffer)
-        {
-            using (FileStream stream = new FileStream(imagePath, FileMode.Create))
-                await stream.WriteAsync(buffer);
-        }
-
         private string GetContentTypeKey(string key)
         {
             return $"{key}ContentType";
@@ -151,6 +135,17 @@ namespace AspNetCoreMvcPractice.Helpers
 
                 await responseBody.CopyToAsync(originalBodyStream);
             }
+        }
+        private async Task CreateFileAsync(string imagePath, byte[] buffer)
+        {
+            using (FileStream stream = new FileStream(imagePath, FileMode.Create))
+                await stream.WriteAsync(buffer);
+        }
+        private void DeleteFileIfExists(string path)
+        {
+            var isExists = File.Exists(path);
+            if (isExists)
+                File.Delete(path);
         }
     }
 }
