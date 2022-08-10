@@ -9,7 +9,10 @@
     <div class="row" style="padding-top: 20px">
         <ul class="col-md-auto">
             <li>
-                <a asp-action="GetImage" asp-route-id="@category.CategoryID">See image!</a>
+                <northwind-image-link id="@category.CategoryID" text="See image!"/>
+            </li>
+            <li>
+                @Html.NorthwindImageLink(category.CategoryID, "See image with HTML Helper!")
             </li>
             <li>
                 <a asp-action="EditImage" asp-route-id="@category.CategoryID">Edit Image!</a>
