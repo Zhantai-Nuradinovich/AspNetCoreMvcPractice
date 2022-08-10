@@ -1,0 +1,22 @@
+﻿@model BreadcrumbData
+
+<ol class="breadcrumb mr-auto shadow-sm">
+    <li class="breadcrumb-item">
+        <a asp-controller="Home" asp-action="Index">Home</a>
+    </li>
+    @if (Model.Action.ToLower() == "index")
+    {
+        <li class="breadcrumb-item active">
+            <a asp-controller="@Model.Controller" asp-action="Index">@Model.Controller</a>
+        </li>
+    }
+    else
+    {
+        <li class="breadcrumb-item">
+            <a asp-controller="@Model.Controller" asp-action="Index">@Model.Controller</a>
+        </li>
+        <li class="breadcrumb-item active">
+            @Model.Action
+        </li>
+    }
+</ol>

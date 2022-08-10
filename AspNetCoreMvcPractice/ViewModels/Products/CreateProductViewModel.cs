@@ -29,7 +29,7 @@ namespace AspNetCoreMvcPractice.ViewModels.Products
         [Required]
         public bool Discontinued { get; set; }
 
-        public int SupplierID { get; set; }
+        public int SupplierId { get; set; }
         public Supplier Supplier { get; set; }
 
         public int CategoryID { get; set; }

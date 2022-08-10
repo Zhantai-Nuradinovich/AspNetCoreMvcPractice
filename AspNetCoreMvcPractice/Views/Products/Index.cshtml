@@ -3,6 +3,7 @@
     ViewData["Title"] = "Products";
 }
 
+<vc:breadcrumb></vc:breadcrumb>
 <div>
     <a asp-action="Create" class="btn btn-outline-primary">Create new product</a>
 </div>
@@ -26,7 +27,9 @@
         {
             <tr>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@product.ProductID" class="btn btn-sm" style="color: gray;"/>
+                    <a asp-action="Edit" asp-route-id="@product.ProductID" class="btn btn-sm" style="color: gray;">
+                        Edit
+                    </a>
                 </td>
                 <td>@product.ProductName</td>
                 <td>@product.Supplier.CompanyName</td>

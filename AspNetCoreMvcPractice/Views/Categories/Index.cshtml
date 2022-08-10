@@ -3,6 +3,7 @@
     ViewData["Title"] = "Categories list";
 }
 
+<vc:breadcrumb></vc:breadcrumb>
 @foreach (var category in Model)
 {
     <div class="row" style="padding-top: 20px">
@@ -25,7 +26,7 @@
 
 @section footer{
     <div class="container">
-          &copy; 2022 - AspNetCoreMvcPractice 
+        &copy; 2022 - AspNetCoreMvcPractice
 
         - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         - <a asp-area="" asp-controller="Home" asp-action="Index">Home</a>

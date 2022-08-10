@@ -4,6 +4,7 @@
     ViewData["Title"] = "Create new Product";
 }
 
+<vc:breadcrumb></vc:breadcrumb>
 <form method="post" class="font-weight-bold text-sm-left">
     <div class="input-group-sm col-sm-3">
         <label asp-for="ProductName">Product name</label>
@@ -12,7 +13,7 @@
     </div>
     <div class="input-group-sm col-sm-3" style="padding-top: 10px">
         <label asp-for="Supplier">Supplier</label>
-        <select asp-for="SupplierID" asp-items="ViewBag.Suppliers" class="form-control"></select>
+        <select asp-for="SupplierId" asp-items="ViewBag.Suppliers" class="form-control"></select>
     </div>
     <div class="input-group-sm col-sm-3" style="padding-top: 10px">
         <label asp-for="Category">Category</label>

@@ -64,7 +64,7 @@ namespace AspNetCoreMvcPractice.Controllers
             return View(_mapper.Map<EditProductViewModel>(product));
         }
 
-        [HttpPut]
+        [HttpPost]
         public async Task<IActionResult> Edit(EditProductViewModel product)
         {
             if (ModelState.IsValid)
@@ -82,7 +82,7 @@ namespace AspNetCoreMvcPractice.Controllers
         private async Task FillProductsDropDownLists()
         {
             ViewBag.Suppliers = new SelectList(await _productService.GetSuppliers(), "SupplierId", "CompanyName");
-            ViewBag.Categories = new SelectList(await _productService.GetCategories(), "CategoryId", "CategoryName");
+            ViewBag.Categories = new SelectList(await _productService.GetCategories(), "CategoryID", "CategoryName");
         }
     }
 }
