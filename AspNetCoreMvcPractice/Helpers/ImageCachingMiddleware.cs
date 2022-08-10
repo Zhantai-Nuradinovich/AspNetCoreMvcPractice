@@ -54,6 +54,7 @@ namespace AspNetCoreMvcPractice.Helpers
 
         private string GetImagePath(HttpContext context)
         {
+            //value of image's "id" from Path starts from 8th index
             var id = context.Request.Path.Value.Substring(8);
             var imagesPath = Path.Combine(_env.WebRootPath, "CachedImages");
             return Path.Combine(imagesPath, id);
