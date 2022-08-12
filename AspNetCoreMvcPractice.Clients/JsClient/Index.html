@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <script src="lib/jquery/dist/jquery.min.js"></script>
+    <title>Get All methods</title>
+</head>
+<body>
+    <div>
+        <h2>Categories:</h2>
+        <dl id="categories" />
+    </div>
+
+    <div>
+        <h2>Products:</h2>
+        <dl id="products" />
+    </div>
+
+    <script>
+        var url = 'http://localhost:29247/api'
+
+        $(document).ready(function () {
+            getCategories();
+            getProducts();
+        });
+
+        function getCategories() {
+            $.getJSON(url + '/category')
+                .done(function (data) {
+                    $.each(data, function (key, item) {
+                        $('<dt>', { text: item.categoryName }).appendTo($('#categories'));
+                        $('<dd>', { text: '• ' + item.description }).appendTo($('#categories'));
+                    });
+                });
+        }
+
+        function getProducts() {
+            $.getJSON(url + '/product')
+                .done(function (data) {
+                    $.each(data, function (key, item) {
+                        $('<dt>', { text: item.productName }).appendTo($('#products'));
+                        $('<dd>', { text: 'Quantity per unit: ' + item.quantityPerUnit + '; Price: ' + item.price })
+                            .appendTo($('#products'));
+                        $('<dd>', { text: 'Supplier: ' + item.supplier.companyName + '; Category: ' + item.category.categoryName })
+                            .appendTo($('#products'));
+                    });
+                });
+        }
+    </script>
+</body>
+</html>
