@@ -3,13 +3,12 @@
     ViewData["Title"] = "Categories list";
 }
 
-<vc:breadcrumb></vc:breadcrumb>
 @foreach (var category in Model)
 {
     <div class="row" style="padding-top: 20px">
         <ul class="col-md-auto">
             <li>
-                <northwind-image-link id="@category.CategoryID" text="See image!"/>
+                <northwind-image-link image-id="@category.CategoryID" text="See image!"/>
             </li>
             <li>
                 @Html.NorthwindImageLink(category.CategoryID, "See image with HTML Helper!")
