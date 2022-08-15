@@ -26,8 +26,8 @@ namespace AspNetCoreMvcPractice.Clients
                 foreach (var category in categories)
                     ShowCategory(category);
 
-                foreach (var p in products)
-                    ShowProduct(p);
+                foreach (var product in products)
+                    ShowProduct(product);
             }
             catch (Exception e)
             {
