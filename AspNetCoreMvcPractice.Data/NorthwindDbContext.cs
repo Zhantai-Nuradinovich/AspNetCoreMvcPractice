@@ -1,4 +1,5 @@
 ﻿using AspNetCoreMvcPractice.Data.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 // Code scaffolded by EF Core assumes nullable reference types (NRTs) are not used or disabled.
@@ -7,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace AspNetCoreMvcPractice.Data
 {
-    public partial class NorthwindDbContext : DbContext
+    public partial class NorthwindDbContext : IdentityDbContext<User, UserRole, int>
     {
         public NorthwindDbContext()
         {
@@ -814,6 +815,7 @@ namespace AspNetCoreMvcPractice.Data
                     .HasConstraintName("FK_Territories_Region");
             });
 
+            base.OnModelCreating(modelBuilder);
             OnModelCreatingPartial(modelBuilder);
         }
 
