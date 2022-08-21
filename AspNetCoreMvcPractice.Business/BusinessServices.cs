@@ -3,6 +3,7 @@ using AspNetCoreMvcPractice.Data;
 using AspNetCoreMvcPractice.Data.Interfaces;
 using AspNetCoreMvcPractice.Data.Models;
 using AspNetCoreMvcPractice.Data.Repositories;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -27,6 +28,12 @@ namespace AspNetCoreMvcPractice.Business
                     .AddScoped<IRepository<Supplier>, GenericRepository<Supplier>>();
 
             services.AddScoped<DbContext, NorthwindDbContext>();
+
+            services.AddIdentity<User, UserRole>()
+                    .AddEntityFrameworkStores<NorthwindDbContext>()
+                    .AddDefaultTokenProviders();
+
+            services.AddScoped<IEmailService, EmailService>();
 
             return services;
         }

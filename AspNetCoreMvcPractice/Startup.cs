@@ -74,6 +74,8 @@ namespace AspNetCoreMvcPractice
 
             app.UseRouting();
 
+            app.UseAuthentication();
+
             app.UseAuthorization();
 
             app.UseMiddleware<ImageCacheMiddleware>();

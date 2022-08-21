@@ -15,28 +15,7 @@
         }
         else
         {
-            <nav class="navbar navbar-light amber lighten-4 mb-4">
-
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">AspNetCoreMvcPractice</a>
-                <button class="navbar-toggler first-button" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div id="navbarSupportedContent" class="collapse navbar-collapse">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Categories" asp-action="Index">Categories</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Products" asp-action="Index">Products</a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
+            @await Html.PartialAsync("_NavbarPartial");
         }
     </header>
     <div class="container">
