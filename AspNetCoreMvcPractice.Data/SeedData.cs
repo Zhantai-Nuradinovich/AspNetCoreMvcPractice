@@ -25,17 +25,32 @@ namespace AspNetCoreMvcPractice.Data
                 return;
 
             await roleManager.CreateAsync(new UserRole("Admin"));
+            await roleManager.CreateAsync(new UserRole("User"));
 
-            var user = new User()
+            var admin = new User()
             {
                 Email = "admin@northwind.com",
-                UserName = "Username",
+                UserName = "Admin",
                 FirstName = "Admin",
                 LastName = "Test",
                 CreatedAt = DateTimeOffset.UtcNow
             };
+
+            var user = new User()
+            {
+                Email = "user@northwind.com",
+                UserName = "User",
+                FirstName = "User",
+                LastName = "Test",
+                CreatedAt = DateTimeOffset.UtcNow
+            };
+
+            await userManager.CreateAsync(admin, "Supersecret123!!");
+            await userManager.AddToRoleAsync(admin, "Admin");
+            await userManager.UpdateAsync(admin);
+
             await userManager.CreateAsync(user, "Supersecret123!!");
-            await userManager.AddToRoleAsync(user, "Admin");
+            await userManager.AddToRoleAsync(user, "User");
             await userManager.UpdateAsync(user);
         }
     }

@@ -43,7 +43,7 @@ namespace AspNetCoreMvcPractice.Controllers
                 { 
                     Email = model.Email, 
                     UserName = model.Email,
-                    CreatedAt = DateTime.Now
+                    CreatedAt = DateTimeOffset.UtcNow
                 };
 
                 var result = await _userManager.CreateAsync(user, model.Password);
@@ -180,7 +180,7 @@ namespace AspNetCoreMvcPractice.Controllers
                 {
                     UserName = name,
                     Email = name,
-                    CreatedAt = DateTime.Now
+                    CreatedAt = DateTimeOffset.UtcNow
                 };
                 var createResult = await _userManager.CreateAsync(user);
                 var loginResult = await _userManager.AddLoginAsync(user, info);
