@@ -10,11 +10,12 @@ namespace AspNetCoreMvcPractice.Business.Services
 {
     public class EmailService : IEmailService
     {
-        private const string Email = "Email";
-        private const string Password = "Password";
+        private const string Email = "EmailStrings:Email";
+        private const string Password = "EmailStrings:Password";
         private const string MailBoxAddressName = "Administration";
+        private const string MailBoxToAddressName = "User";
         private const string MailServiceHost = "smtp.gmail.com";
-        private const int MailServicePort = 456;
+        private const int MailServicePort = 465;
 
         private readonly string _email;
         private readonly string _password;
@@ -30,7 +31,7 @@ namespace AspNetCoreMvcPractice.Business.Services
             var emailMessage = new MimeMessage();
 
             emailMessage.From.Add(new MailboxAddress(MailBoxAddressName, _email));
-            emailMessage.To.Add(new MailboxAddress("", email));
+            emailMessage.To.Add(new MailboxAddress(MailBoxToAddressName, email));
             emailMessage.Subject = subject;
             emailMessage.Body = new TextPart(MimeKit.Text.TextFormat.Html) {  Text = message };
 

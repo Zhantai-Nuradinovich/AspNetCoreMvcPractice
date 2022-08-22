@@ -110,7 +110,7 @@ namespace AspNetCoreMvcPractice.Controllers
                     return View("ForgotPasswordConfirm");
 
                 var code = await _userManager.GeneratePasswordResetTokenAsync(user);
-                var url = Url.Action("ResetPassword", "Account", 
+                var url = Url.Action("ResetPassword", "Users", 
                     new { UserId = user.Id, Code = code }, 
                     HttpContext.Request.Scheme);
 
