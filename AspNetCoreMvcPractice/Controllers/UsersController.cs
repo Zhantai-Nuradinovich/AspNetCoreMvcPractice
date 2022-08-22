@@ -1,6 +1,7 @@
 ﻿using AspNetCoreMvcPractice.Business.Services;
 using AspNetCoreMvcPractice.Data.Models;
 using AspNetCoreMvcPractice.ViewModels.Users;
+using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -41,7 +42,8 @@ namespace AspNetCoreMvcPractice.Controllers
                 User user = new User() 
                 { 
                     Email = model.Email, 
-                    UserName = model.Email 
+                    UserName = model.Email,
+                    CreatedAt = DateTime.Now
                 };
 
                 var result = await _userManager.CreateAsync(user, model.Password);
@@ -152,6 +154,45 @@ namespace AspNetCoreMvcPractice.Controllers
                 ModelState.AddModelError(string.Empty, error.Description);
 
             return View(model);
+        }
+
+        [HttpGet]
+        public IActionResult ExternalLogin()
+        {
+            var redirectUrl = Url.Action(nameof(ExternalLoginCallback));
+            var properties = _signInManager.ConfigureExternalAuthenticationProperties(OpenIdConnectDefaults.AuthenticationScheme, redirectUrl);
+            return new ChallengeResult(OpenIdConnectDefaults.AuthenticationScheme, properties);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> ExternalLoginCallback()
+        {
+            var info = await _signInManager.GetExternalLoginInfoAsync();
+            var result = await _signInManager.ExternalLoginSignInAsync(info.LoginProvider, info.ProviderKey, false, false);
+
+            if (result.Succeeded)
+                return RedirectToAction("Index", "Home");
+
+            if (info.Principal.Identity != null && !string.IsNullOrEmpty(info.Principal.Identity.Name))
+            {
+                var name = info.Principal.Identity.Name;
+                var user = new User()
+                {
+                    UserName = name,
+                    Email = name,
+                    CreatedAt = DateTime.Now
+                };
+                var createResult = await _userManager.CreateAsync(user);
+                var loginResult = await _userManager.AddLoginAsync(user, info);
+
+                if (createResult.Succeeded && loginResult.Succeeded)
+                {
+                    await _signInManager.SignInAsync(user, false);
+                    return RedirectToAction("Index", "Home");
+                }
+            }
+
+            return RedirectToAction("Login");
         }
     }
 }

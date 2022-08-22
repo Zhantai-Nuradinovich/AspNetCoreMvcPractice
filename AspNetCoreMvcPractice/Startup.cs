@@ -1,11 +1,14 @@
 using AspNetCoreMvcPractice.Business;
 using AspNetCoreMvcPractice.Helpers;
+using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.Identity.Web;
 using Microsoft.OpenApi.Models;
 using System;
 using System.Reflection;
@@ -23,6 +26,12 @@ namespace AspNetCoreMvcPractice
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
+              .AddMicrosoftIdentityWebApp(Configuration.GetSection("AzureAd"));
+
+            services.Configure<OpenIdConnectOptions>(OpenIdConnectDefaults.AuthenticationScheme,
+                options => options.SignInScheme = IdentityConstants.ExternalScheme);
+
             services.AddControllersWithViews();
 
             services.AddBusinessServices(Configuration);
