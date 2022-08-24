@@ -13,9 +13,9 @@ namespace AspNetCoreMvcPractice.Data
     {
         public static async Task InitializeAsync(IServiceProvider services)
         {
-            await AddTestUsers(
-                services.GetRequiredService<RoleManager<UserRole>>(),
-                services.GetRequiredService<UserManager<User>>());
+            var roleManager = services.GetRequiredService<RoleManager<UserRole>>();
+            var userManager = services.GetRequiredService<UserManager<User>>();
+            await AddTestUsers(roleManager, userManager);
         }
 
         private static async Task AddTestUsers(RoleManager<UserRole> roleManager, UserManager<User> userManager)

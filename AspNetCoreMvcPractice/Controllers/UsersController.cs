@@ -116,8 +116,8 @@ namespace AspNetCoreMvcPractice.Controllers
                     new { UserId = user.Id, Code = code }, 
                     HttpContext.Request.Scheme);
 
-                await _emailService.SendEmailAsync(model.Email, "Reset Password",
-                    $"To reset your password, follow the link: <a href='{url}'>link</a>");
+                var message = $"To reset your password, follow the link: <a href='{url}'>link</a>";
+                await _emailService.SendEmailAsync(model.Email, "Reset Password", message);
 
                 return View("ForgotPasswordConfirm");
             }
